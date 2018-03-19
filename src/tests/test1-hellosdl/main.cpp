@@ -13,6 +13,7 @@
 #include "../../rltk_main/rltk.hpp"
 #include <cwchar>
 #include "../../rltk_main/impl/cp437.hpp"
+#include "../../rltk_main/impl/sdl2-backend/sdl2.hpp"
 
 using namespace rltk;
 
@@ -32,7 +33,7 @@ void mymain(bool * quitting)
 	print_at(0, 3, MAGENTA, BLUE, "This should be 3 lines down; with a magenta foreground and blue background.");
 	print_at(0, h-1, WHITE, BLACK, "Press any key to quit.");
 	wprint_at(0, 4, RED, WHITE, L"ßracket ¶roductions");
-	//wprint_at(0, 5, YELLOW, RED, good_day_russian);
+	wprint_at(0, 5, YELLOW, RED, good_day_russian);
 
 	print_at(0, 7, YELLOW, BLACK, "Here is a CP437 Character Map:");
 	auto x = 0;
@@ -41,7 +42,7 @@ void mymain(bool * quitting)
 	{
 		set_char(x, y, WHITE, BLACK, i);
 		++x;
-		if (x > 16)
+		if (x > 15)
 		{
 			x = 0;
 			++y;
@@ -55,15 +56,14 @@ int main()
 {
 	const rltk_mode_t mode = { SDL, true, 80, 26 };
 	root_terminal = init(mode);
-	load_bitmap_font("assets/terminal16x16.png", 16, 256);
+	//load_bitmap_font("assets/terminal16x16.png", 16, 256);
 
-	/*
 	// A curses-only unicode example
 	for (size_t i=0; i<wcslen(good_day_russian); ++i)
 	{
 		add_unicode_mapping(good_day_russian[i]);
 	}
-	*/
+	sdl2::build_bitmap_font_from_ttf("assets/consola.ttf", 16, 512);
 
 	main_loop(mymain);
 	return 0;

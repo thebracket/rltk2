@@ -11,13 +11,17 @@ sprite_t::sprite_t(SDL_Renderer *renderer, const char * filename) {
 	}
 }
 
+sprite_t::sprite_t(SDL_Renderer *renderer, SDL_Surface * surface) {
+	tex_ = SDL_CreateTextureFromSurface(renderer, surface);
+}
+
 void sprite_t::display(SDL_Renderer *renderer) const
 {
 	SDL_Rect dest = { 200, 100, 200, 200 };
 	SDL_RenderCopy(renderer, tex_, nullptr, &dest);
 }
 
-static uint8_t color_to_byte(const float c)
+uint8_t color_to_byte(const float c)
 {
 	return static_cast<uint8_t>(c * 255.0f);
 }

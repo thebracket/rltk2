@@ -2,6 +2,7 @@
 #include <vector>
 #include <map>
 #include <cassert>
+#include <string>
 
 namespace rltk {
 	/* This is the default CP437 map, moved to unicode. */
@@ -30,6 +31,17 @@ namespace rltk {
 		if (n < curses_map.size())
 			return &curses_map[n];
 		return &curses_map[0];
+	}
+
+	std::wstring get_unicode(const int n)
+	{
+		std::wstring result;
+
+		if (n < curses_map.size())
+			result += curses_map[n];
+		result += L'\0';
+
+		return result;
 	}
 
 	static std::map<wchar_t, int> unimap;
@@ -68,5 +80,10 @@ namespace rltk {
 		curses_map.emplace_back(c);
 		build_unicode_map();
 		return result;
+	}
+
+	size_t get_registered_items_size()
+	{
+		return curses_map.size();
 	}
 }
