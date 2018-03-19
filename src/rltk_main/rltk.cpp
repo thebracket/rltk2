@@ -4,6 +4,8 @@
 #include "impl/terminal.hpp"
 #include "impl/curses-backend/curses.hpp"
 #include "impl/cp437.hpp"
+#include "impl/sdl2-backend/sdl2.hpp"
+#include <cassert>
 
 namespace rltk
 {
@@ -32,6 +34,14 @@ namespace rltk
 
 		int init_sdl()
 		{
+			sdl2::init(mode);
+
+			if (mode.add_root_terminal)
+			{
+				terminals.emplace_back(std::make_unique<terminal_t>(mode.width, mode.height));
+				current_terminal = 0;
+				return 0;
+			}
 			return -1;
 		}
 
@@ -42,7 +52,7 @@ namespace rltk
 
 		void stop_sdl()
 		{
-			
+			sdl2::stop();
 		}
 	}
 
@@ -128,17 +138,26 @@ namespace rltk
 		impl::terminals[impl::current_terminal]->set_char(x, y, fg, bg, get_unicode_as_cp(*glyph));
 	}
 
+	void load_bitmap_font(const char * filename, const int size_pixels, const int n_glyphs)
+	{
+		assert(impl::mode.backend == SDL);
+		sdl2::load_bitmap_font(filename, size_pixels, n_glyphs);
+	}
+
 	void present()
 	{
 		for (const auto &t : impl::terminals)
 		{
-			t->present();
+			switch (impl::mode.backend) {
+			case CURSES: t->present_curses(); break;
+			case SDL: t->present_sdl(); break;
+			}
 		}
 
 		switch (impl::mode.backend)
 		{
 		case CURSES: curses::present(); break;
-		case SDL: break;
+		case SDL: sdl2::present(); break;
 		}
 	}
 

@@ -1,5 +1,6 @@
 #include "terminal.hpp"
 #include "curses-backend/curses.hpp"
+#include "sdl2-backend/sdl2.hpp"
 
 namespace rltk
 {
@@ -55,9 +56,15 @@ namespace rltk
 	}
 
 
-	void terminal_t::present() const
+	void terminal_t::present_curses() const
 	{
 		curses::present_console(console_, foreground_, background_, width, height);
 	}
+	
+	void terminal_t::present_sdl() const
+	{
+		sdl2::present_console(console_, foreground_, background_, width, height);
+	}
+
 
 }

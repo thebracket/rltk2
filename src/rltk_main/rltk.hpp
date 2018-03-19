@@ -93,4 +93,9 @@ namespace rltk
 	 * Display the current screen to the world.
 	 */
 	void present();
+
+	/*
+	 * Loads a bitmap font into the SDL subsystem
+	 */
+	void load_bitmap_font(const char * filename, const int size_pixels, const int n_glyphs);
 }

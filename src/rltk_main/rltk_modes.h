@@ -23,6 +23,8 @@ extern "C" {
 		// Curses specific initialization
 
 		// SDL-specific initialization
+		int width = 80;
+		int height = 25;
 	};
 }
 

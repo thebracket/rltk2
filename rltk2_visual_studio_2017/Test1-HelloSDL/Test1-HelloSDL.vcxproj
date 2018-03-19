@@ -20,13 +20,13 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{78C295E0-91D1-4F6C-BBE8-B125D2F35135}</ProjectGuid>
-    <RootNamespace>rltk2</RootNamespace>
+    <ProjectGuid>{96DF7963-E9CC-4B41-8FDC-F7F4ED9E138B}</ProjectGuid>
+    <RootNamespace>Test1HelloSDL</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
@@ -115,26 +115,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\rltk_main\impl\color.hpp" />
-    <ClInclude Include="..\..\src\rltk_main\impl\cp437.hpp" />
-    <ClInclude Include="..\..\src\rltk_main\impl\curses-backend\curses.hpp" />
-    <ClInclude Include="..\..\src\rltk_main\impl\sdl2-backend\sdl2.hpp" />
-    <ClInclude Include="..\..\src\rltk_main\impl\sdl2-backend\sprite.hpp" />
-    <ClInclude Include="..\..\src\rltk_main\impl\terminal.hpp" />
-    <ClInclude Include="..\..\src\rltk_main\impl\vchar.hpp" />
-    <ClInclude Include="..\..\src\rltk_main\rltk.hpp" />
-    <ClInclude Include="..\..\src\rltk_main\rltk_modes.h" />
+    <ClCompile Include="..\..\src\tests\test1-hellosdl\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\rltk_main\impl\cp437.cpp" />
-    <ClCompile Include="..\..\src\rltk_main\impl\curses-backend\curses.cpp" />
-    <ClCompile Include="..\..\src\rltk_main\impl\sdl2-backend\sdl2.cpp" />
-    <ClCompile Include="..\..\src\rltk_main\impl\sdl2-backend\sprite.cpp" />
-    <ClCompile Include="..\..\src\rltk_main\impl\terminal.cpp" />
-    <ClCompile Include="..\..\src\rltk_main\rltk.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\README.md" />
+    <ProjectReference Include="..\rltk2\rltk2.vcxproj">
+      <Project>{78c295e0-91d1-4f6c-bbe8-b125d2f35135}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -14,7 +14,8 @@ namespace rltk
 		void print_at(const int x, const int y, const char * text);
 		void print_at(const int x, const int y, const color_t fg, const color_t bg, const char* text);
 		void set_char(const int x, const int y, const color_t fg, const color_t bg, const uint16_t glyph);
-		void present() const;
+		void present_curses() const;
+		void present_sdl() const;
 		int width, height;
 
 	private:

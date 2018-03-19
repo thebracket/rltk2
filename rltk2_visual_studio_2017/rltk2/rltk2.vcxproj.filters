@@ -14,6 +14,9 @@
     <Filter Include="Source Files\rltk-main\impl\curses-backend">
       <UniqueIdentifier>{a841b702-9077-4582-b9cf-28683b129b75}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\rltk-main\impl\sdl2-backend">
+      <UniqueIdentifier>{3b65c6ed-e214-455d-a75f-115fd5c78081}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\rltk_main\impl\curses-backend\curses.hpp">
@@ -37,6 +40,12 @@
     <ClInclude Include="..\..\src\rltk_main\impl\cp437.hpp">
       <Filter>Source Files\rltk-main\impl</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\rltk_main\impl\sdl2-backend\sdl2.hpp">
+      <Filter>Source Files\rltk-main\impl\sdl2-backend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\rltk_main\impl\sdl2-backend\sprite.hpp">
+      <Filter>Source Files\rltk-main\impl\sdl2-backend</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\rltk_main\rltk.cpp">
@@ -50,6 +59,12 @@
     </ClCompile>
     <ClCompile Include="..\..\src\rltk_main\impl\cp437.cpp">
       <Filter>Source Files\rltk-main\impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\rltk_main\impl\sdl2-backend\sdl2.cpp">
+      <Filter>Source Files\rltk-main\impl\sdl2-backend</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\rltk_main\impl\sdl2-backend\sprite.cpp">
+      <Filter>Source Files\rltk-main\impl\sdl2-backend</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
