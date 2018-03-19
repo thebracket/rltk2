@@ -39,6 +39,9 @@ namespace rltk
 
 		void present()
 		{
+			SDL_Event event;
+			while (SDL_PollEvent(&event)) {
+			}
 			SDL_RenderPresent(renderer);
 		}
 

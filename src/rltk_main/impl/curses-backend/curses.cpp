@@ -111,8 +111,6 @@ namespace rltk
 					mvwadd_wch(mainscr, y, x, &tmp);
 				}
 			}
-			nodelay(mainscr, FALSE);
-			wgetch(mainscr);
 		}
 	}
 }

@@ -48,7 +48,7 @@ void mymain(bool * quitting)
 		}
 	}
 
-	*quitting = true;
+	*quitting = false;
 }
 
 int main()

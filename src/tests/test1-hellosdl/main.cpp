@@ -30,7 +30,7 @@ void mymain(bool * quitting)
 	print_at(0, 0, "Hello CP437 World!");
 	print_at(0, 2, YELLOW, BLACK, "This should be 2 lines down; in yellow!");
 	print_at(0, 3, MAGENTA, BLUE, "This should be 3 lines down; with a magenta foreground and blue background.");
-	print_at(0, h - 1, "Press any key to quit.");
+	print_at(0, h-1, WHITE, BLACK, "Press any key to quit.");
 	wprint_at(0, 4, RED, WHITE, L"ßracket ¶roductions");
 	//wprint_at(0, 5, YELLOW, RED, good_day_russian);
 
@@ -53,7 +53,7 @@ void mymain(bool * quitting)
 
 int main()
 {
-	const rltk_mode_t mode = { SDL, true, 80, 25 };
+	const rltk_mode_t mode = { SDL, true, 80, 26 };
 	root_terminal = init(mode);
 	load_bitmap_font("assets/terminal16x16.png", 16, 256);
 
