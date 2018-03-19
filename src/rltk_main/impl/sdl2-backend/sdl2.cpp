@@ -113,9 +113,6 @@ namespace rltk
 			SDL_FreeSurface(temp_surface);
 		}
 
-		const auto BLANK_SRC_X = (219 % 16);
-		const auto BLANK_SRC_Y = (219 / 16);
-
 		void present_console(const std::vector<vchar_t> &console, const std::vector<color_t> &foreground, const std::vector<color_t> &background, const int &w, const int &h)
 		{
 			// Clear the screen
